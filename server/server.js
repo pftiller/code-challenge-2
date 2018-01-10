@@ -34,6 +34,19 @@ let jokes = [
     punchLine: "It was a shih tzu."
   }
 ];
+app.post('/path', function(req, res) {
+  jokes.push(req.body.jokeToSend);
+    res.sendStatus( 200 );
+    console.log('made it');
+});
+
+app.get('/path', function(req, res){
+  res.send(jokes);
+});
+
+
+
+
 
 // serve back static files
 app.use(express.static('server/public'));
@@ -41,3 +54,6 @@ app.use(express.static('server/public'));
 app.listen(port, function(){
   console.log('server running on: ', port);
 }); // end spin up server
+
+
+2
